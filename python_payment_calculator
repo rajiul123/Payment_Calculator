@@ -1,0 +1,70 @@
+while True:
+    try:
+        HOUR = input("Enter Standard Working Hour: ")
+        if HOUR == 'q':
+            break
+        else:
+            HOUR = float(HOUR)
+            if HOUR < 0:
+                print("Invalid Input. Try again")
+            else:
+                break
+    except ValueError:
+        print("Invalid input. Try again or type 'q' to exit.")
+
+if HOUR != 'q':
+    while True:
+        try:
+            RATE = input("Enter Standard Working Rate: ")
+            if RATE == 'q':
+                break
+            else:
+                RATE = float(RATE)
+                if RATE < 0:
+                    print("Invalid Input. Try Again.")
+                else:
+                    break
+        except ValueError:
+            print("Invalid input. Try again or type 'q' to exit.")
+
+
+if HOUR != 'q' and RATE != 'q':
+    while True:
+        try:
+            workingHour = input("Enter Working Hour: ")
+            if workingHour == 'q':
+                break
+            else:
+                workingHour = float(workingHour)
+                if workingHour < 0:
+                    print("Invalid Input. Try Again.")
+                else:
+                    break
+        except ValueError:
+            print("Invalid input. Try again or type 'q' to exit.")
+
+if HOUR != 'q' and RATE != 'q' and workingHour != 'q':
+    if workingHour <= HOUR:
+        salary = workingHour * RATE
+    else:
+        extra_hour = workingHour - HOUR
+        while True:
+            try:
+                extra_rate = input("Enter Extra Rate: ")
+                if extra_rate == 'q':
+                    break
+                else:
+                    extra_rate = float(extra_rate)
+                    if extra_rate < 0:
+                        print("Invalid Input. Try Again.")
+                    else:
+                        salary = (workingHour * RATE) + (extra_hour * extra_rate)
+                        break
+            except ValueError:
+                print("Invalid input. Try again or type 'q' to exit.")
+
+if HOUR != 'q' and RATE != 'q' and workingHour != 'q' and extra_rate != 'q':
+    print("Salary:", salary)
+    print("THANK YOU!")
+else:
+    print("Thank you so much. See you later ALIGATOR.")
